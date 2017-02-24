@@ -67,7 +67,8 @@ while 1:
 						
 						if fextension.lower() in args.extensions or any(a in fname.lower() for a in args.keywords):
 							#\\?\ extends character limit? Thanks timmy 
-							shutil.copy(os.path.join(r, f), os.path.join("\\\?\\" + args.destination[0], os.path.join(destination, fname + "_" + str(id) + fextension)))
+							#copy2 to preserve metadata
+							shutil.copy2(os.path.join(r, f), os.path.join("\\\?\\" + args.destination[0], os.path.join(destination, fname + "_" + str(id) + fextension)))
 						id+=1 	
 			else:
 				dir_util.copy_tree(d , os.path.join(args.destination[0],str(time.strftime("%Y%m%d-%H%M%S"))))
